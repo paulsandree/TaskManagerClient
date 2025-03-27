@@ -32,38 +32,44 @@ export default function TaskList() {
     };
 
     return (
-        <div className="p-4 max-w-lg mx-auto">
-            <h1 className="text-2xl font-bold mb-4">Liste des Tâches</h1>
+        <div className="p-6 max-w-lg mx-auto bg-white shadow-md rounded-lg">
+            <h1 className="text-2xl font-bold text-center text-gray-700 mb-4">Liste des Tâches</h1>
             <div className="flex mb-4">
                 <input
                     type="text"
                     value={newTask}
                     onChange={(e) => setNewTask(e.target.value)}
-                    className="border p-2 flex-grow rounded-l"
+                    className="border p-2 flex-grow rounded-l focus:outline-none focus:ring-2 focus:ring-blue-400"
                     placeholder="Ajouter une tâche..."
                 />
-                <button onClick={handleAddTask} className="bg-blue-500 text-white p-2 rounded-r">
+                <button
+                    onClick={handleAddTask}
+                    className="bg-blue-500 text-white p-2 rounded-r hover:bg-blue-600"
+                >
                     Ajouter
                 </button>
             </div>
-            <ul>
-                {Array.isArray(tasks) && tasks.length > 0 ? (
-                    tasks.map((task) => (
-                        <li key={task.id} className="flex justify-between items-center p-2 border-b">
-                            <span
-                                className={`cursor-pointer ${task.isCompleted ? "line-through text-gray-500" : ""}`}
-                                onClick={() => handleToggleTask(task)}
-                            >
-                                {task.title}
-                            </span>
-                            <button onClick={() => handleDeleteTask(task.id)} className="text-red-500">
-                                Supprimer
-                            </button>
-                        </li>
-                    ))
-                ) : (
-                    <p>Aucune tâche à afficher</p>  // Affiche un message si tasks n'est pas un tableau
-                )}
+            <ul className="space-y-2">
+                {tasks.map((task) => (
+                    <li
+                        key={task.id}
+                        className="flex justify-between items-center p-3 bg-gray-100 rounded shadow"
+                    >
+                        <span
+                            className={`cursor-pointer ${task.isCompleted ? "line-through text-gray-500" : ""
+                                }`}
+                            onClick={() => handleToggleTask(task)}
+                        >
+                            {task.title}
+                        </span>
+                        <button
+                            onClick={() => handleDeleteTask(task.id)}
+                            className="text-red-500 hover:text-red-700"
+                        >
+                            ❌
+                        </button>
+                    </li>
+                ))}
             </ul>
         </div>
     );
