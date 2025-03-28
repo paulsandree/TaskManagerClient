@@ -48,14 +48,14 @@ export default function TaskForm({ task, onSave, onCancel }) {
         <div className="flex justify-between">
           <button
             type="submit"
-            className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+            className="bg-gradient-to-r from-blue-500 to-teal-500 text-white px-6 py-3 rounded-md hover:scale-105 transition-all duration-300 w-full sm:w-auto"
           >
             Sauvegarder
           </button>
           <button
             type="button"
             onClick={onCancel}
-            className="bg-gray-500 text-white p-2 rounded hover:bg-gray-600"
+            className="bg-gradient-to-r from-blue-500 to-teal-500 text-white px-6 py-3 rounded-md hover:scale-105 transition-all duration-300 w-full sm:w-auto"
           >
             Annuler
           </button>
