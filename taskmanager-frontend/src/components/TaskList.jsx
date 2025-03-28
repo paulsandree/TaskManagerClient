@@ -55,13 +55,15 @@ export default function TaskList() {
                         key={task.id}
                         className="flex justify-between items-center p-3 bg-gray-100 rounded shadow"
                     >
-                        <span
-                            className={`cursor-pointer ${task.isCompleted ? "line-through text-gray-500" : ""
-                                }`}
-                            onClick={() => handleToggleTask(task)}
-                        >
-                            {task.title}
-                        </span>
+                        <div className="flex items-center gap-2">
+                            <span className={`${task.isCompleted ? "line-through text-gray-500" : ""}`}>
+                                {task.title}
+                            </span>
+                            <span className={`cursor-pointer text-sm px-2 py-1 rounded ${task.isCompleted ? "bg-green-500 text-white" : "bg-yellow-500 text-white"}`}
+                            onClick={() => handleToggleTask(task)}>
+                                {task.isCompleted ? "Complétée" : "En cours"}
+                            </span>
+                        </div>
                         <button
                             onClick={() => handleDeleteTask(task.id)}
                             className="text-red-500 hover:text-red-700"
