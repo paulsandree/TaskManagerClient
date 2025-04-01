@@ -50,7 +50,6 @@ export default function TaskList() {
 
     return (
         <div className="p-8 max-w-full sm:max-w-lg lg:max-w-3xl mx-auto bg-gradient-to-r from-blue-50 via-indigo-100 to-purple-200 shadow-lg rounded-xl">
-            <h1 className="text-3xl sm:text-4xl font-semibold text-center text-gray-800 mb-6">TaskManager</h1>
             <div className="flex flex-col sm:flex-row mb-6 gap-4 sm:gap-2">
                 <input
                     type="text"
